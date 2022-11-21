@@ -1,20 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
-#define _USE_MATH_DEFINES
-#include <math.h>
-#include<iostream>
-#include <random>
-#include<gl/glew.h>
-#include<gl/freeglut.h>
-#include<gl/freeglut_ext.h>
-#include <glm/glm.hpp>
-#include <glm/ext.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <fstream>
-#include< string >
-#include <sstream>
-#include"readshader.h"
-#include"objread.h"
-using namespace std;
+#include "pch.h"
 
 void make_vertexShaders();
 void make_fragmentShaders();
@@ -23,6 +7,24 @@ GLvoid Reshape(int w, int h);
 GLuint shaderID; //--- 세이더 프로그램 이름
 GLuint vertexShader; //--- 버텍스 세이더 객체
 GLuint fragmentShader;
+
+char* filetobuf(const char* file)
+{
+	FILE* fptr;
+	long length;
+	char* buf;
+	fptr = fopen(file, "rb"); // Open file for reading 
+	if (!fptr) // Return NULL on failure 
+		return NULL;
+	fseek(fptr, 0, SEEK_END); // Seek to the end of the file 
+	length = ftell(fptr); // Find out how many bytes into the file we are 
+	buf = (char*)malloc(length + 1); // Allocate a buffer for the entire length of the file and a null terminator 
+	fseek(fptr, 0, SEEK_SET); // Go back to the beginning of the file 
+	fread(buf, length, 1, fptr); // Read the contents of the file in to the buffer 
+	fclose(fptr); // Close the file 
+	buf[length] = 0; // Null terminator 
+	return buf; // Return the buffer 
+}
 
 void make_vertexShaders()
 {
@@ -99,7 +101,13 @@ void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
 	glewExperimental = GL_TRUE;
 	glewInit();
 	InitShader();
-	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST);    // 은면 제거
+	glEnable(GL_DITHER);        // 표면을 매끄럽게
+	glEnable(GL_CULL_FACE);     // 컬링
+	glEnable(GL_LINE_SMOOTH);   // 안티 앨리어싱
+	glEnable(GL_POLYGON_SMOOTH);// 안티 앨리어싱
+	glShadeModel(GL_SMOOTH);    // 부드러운 음영을 수행합니다.
+
 	glutDisplayFunc(render);
 	glutReshapeFunc(Reshape);
 	glutMainLoop();
