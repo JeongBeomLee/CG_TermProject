@@ -19,6 +19,24 @@
     <Filter Include="PCH">
       <UniqueIdentifier>{8963485b-8e5c-4ca7-90ba-41231c420261}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GEM">
+      <UniqueIdentifier>{15f316a4-3d09-4ca1-982b-5b39b81d8752}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MAP">
+      <UniqueIdentifier>{8aa53e28-a8a3-40a5-85f3-f7913be83db8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CAMERA">
+      <UniqueIdentifier>{52a9f277-d323-412b-aec8-1b791adf8717}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PET">
+      <UniqueIdentifier>{123b6b0b-a4bc-42b4-91a8-38dd248f3e24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MONSTER">
+      <UniqueIdentifier>{990d1e15-69a6-456c-9056-419670e1de95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PLAYER">
+      <UniqueIdentifier>{62caa005-562a-43d6-a55a-2bd48071c975}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -27,10 +45,46 @@
     <ClCompile Include="pch.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
+    <ClCompile Include="PLAYER.cpp">
+      <Filter>PLAYER</Filter>
+    </ClCompile>
+    <ClCompile Include="MONSTER.cpp">
+      <Filter>MONSTER</Filter>
+    </ClCompile>
+    <ClCompile Include="GEM.cpp">
+      <Filter>GEM</Filter>
+    </ClCompile>
+    <ClCompile Include="MAP.cpp">
+      <Filter>MAP</Filter>
+    </ClCompile>
+    <ClCompile Include="CAMERA.cpp">
+      <Filter>CAMERA</Filter>
+    </ClCompile>
+    <ClCompile Include="PET.cpp">
+      <Filter>PET</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="PLAYER.h">
+      <Filter>PLAYER</Filter>
+    </ClInclude>
+    <ClInclude Include="MONSTER.h">
+      <Filter>MONSTER</Filter>
+    </ClInclude>
+    <ClInclude Include="GEM.h">
+      <Filter>GEM</Filter>
+    </ClInclude>
+    <ClInclude Include="MAP.h">
+      <Filter>MAP</Filter>
+    </ClInclude>
+    <ClInclude Include="CAMERA.h">
+      <Filter>CAMERA</Filter>
+    </ClInclude>
+    <ClInclude Include="PET.h">
+      <Filter>PET</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

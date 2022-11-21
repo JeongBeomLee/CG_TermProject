@@ -1,6 +1,6 @@
 #include "pch.h"
 
-void ReadObj(string file, vector<glm::vec3>* vertexData, vector<glm::ivec3>* faceData)
+void ReadObj(string file, vector<glm::vec3>* vertexData, vector<glm::vec3>* colorData, vector<glm::ivec3>* faceData)
 {
 	ifstream in(file);
 	if (!in) {
@@ -25,6 +25,19 @@ void ReadObj(string file, vector<glm::vec3>* vertexData, vector<glm::ivec3>* fac
 			}
 			vertexData->emplace_back(vertemp);
 		}
+		else if (temp[0] == 'c' && temp[1] == ' ') {
+			istringstream slice(temp);
+
+			glm::vec3 colortemp;
+			for (int i = -1; i < 3; ++i) {
+				string word;
+				getline(slice, word, ' ');
+				if (i == -1) continue;                  // c ÀÐÀ»¶© °Ç³Ê¶Ú´Ù
+
+				colortemp[i] = atof(word.c_str());
+			}
+			colorData->emplace_back(colortemp);
+		}
 		else if (temp[0] == 'f' && temp[1] == ' ') {
 			istringstream slice(temp);
 
@@ -47,28 +60,24 @@ void ReadObj(string file, vector<glm::vec3>* vertexData, vector<glm::ivec3>* fac
 			faceData->emplace_back(facetemp);
 		}
 	}
-
-	//cout << "v information" << endl;
-	//for (int i = 0; i < vertex.size(); ++i) {
-	//	cout << vertex[i].x << ' ' << vertex[i].y << ' ' << vertex[i].z << endl;
-	//}
-	//cout << endl << "f information" << endl;;
-	//for (int i = 0; i < face.size(); ++i) {
-	//	cout << face[i].x << ' ' << face[i].y << ' ' << face[i].z << endl;
-	//}
 }
-void initBuffer(GLuint* VAO, GLuint* VBO, GLuint* EBO, vector<glm::vec3> vertexData, vector<glm::ivec3> faceData)
+void initBuffer(GLuint* VAO, GLuint* VBO, GLuint* EBO, vector<glm::vec3> vertexData, vector<glm::vec3> colorData, vector<glm::ivec3> faceData)
 {
 	glGenVertexArrays(1, VAO);
 	glGenBuffers(1, EBO);
-	glGenBuffers(1, VBO);
+	glGenBuffers(2, VBO);
 
 	glBindVertexArray(*VAO);
 
-	glBindBuffer(GL_ARRAY_BUFFER, *VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
 	glBufferData(GL_ARRAY_BUFFER, vertexData.size() * sizeof(glm::vec3), &vertexData[0], GL_STATIC_DRAW);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[1]);
+	glBufferData(GL_ARRAY_BUFFER, colorData.size() * sizeof(glm::vec3), &colorData[0], GL_STATIC_DRAW);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(1);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, faceData.size() * sizeof(glm::ivec3), &faceData[0], GL_STATIC_DRAW);

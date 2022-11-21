@@ -127,11 +127,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CAMERA.cpp" />
+    <ClCompile Include="GEM.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MAP.cpp" />
+    <ClCompile Include="MONSTER.cpp" />
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="PET.cpp" />
+    <ClCompile Include="PLAYER.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CAMERA.h" />
+    <ClInclude Include="GEM.h" />
+    <ClInclude Include="MAP.h" />
+    <ClInclude Include="MONSTER.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PET.h" />
+    <ClInclude Include="PLAYER.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="fragment.glsl" />
