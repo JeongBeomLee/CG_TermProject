@@ -125,17 +125,18 @@ void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
 	glutMainLoop();
 }
 
-// 테스트용 카메라, 뷰포트임 나중에 객체로 만들어서 관리할 것
-GLfloat camera_x = 103.f;
-GLfloat camera_y = 38.f;
-GLfloat camera_z = 0.f;
+// 테스트용 카메라, 뷰포트임 나중에 객체로 만들어서 관리할 것임. 입맛대로 바꿔서 쓰세요
+GLfloat cameraX = 103.f;
+GLfloat cameraY = 38.f;
+GLfloat cameraZ = 0.f;
+GLfloat cameraRotateDegree = 0.f;
 
 void setCamera()
 {
 	glm::mat4 view = glm::mat4(1.0f);
 
-	glm::vec3 cameraPos = glm::vec3(camera_x, 45.f, camera_z);
-	cameraPos = glm::rotate(cameraPos, glm::radians(0.f), glm::vec3(0.0, 1.0, 0.0));
+	glm::vec3 cameraPos = glm::vec3(cameraX, 45.f, cameraZ);
+	cameraPos = glm::rotate(cameraPos, glm::radians(cameraRotateDegree), glm::vec3(0.0, 1.0, 0.0));
 	glm::vec3 cameraTarget = glm::vec3(0.f, 0.f, 0.f);
 	glm::vec3 cameraDirection = glm::normalize(cameraPos - cameraTarget);
 
@@ -168,6 +169,12 @@ void Render()
 	setCamera();     // 카메라 설정
 	setProjection(); // 투영 공간 설정
 
+
+	/// 그리기 (그리기 전에 main에서 init, update 해주기)
+	
+
+	/// 그리기 (변환은 타이머에서 적용해주고, 마지막에 update 넣어주기)
+
 	glutSwapBuffers();
 }
 
@@ -181,6 +188,33 @@ GLvoid KeyboardDown(unsigned char key, int x, int y)
 {
 	switch (key)
 	{
+	case 'q':
+		cameraX += 1.0;
+		break;
+	case 'w':
+		cameraX += 1.0;
+		break;
+
+	case 'a':
+		cameraY += 1.0;
+		break;
+	case 's':
+		cameraY += 1.0;
+		break;
+
+	case 'z':
+		cameraZ += 1.0;
+		break;
+	case 'x':
+		cameraZ += 1.0;
+		break;
+
+	case ' ':
+		cameraRotateDegree += 1.0;
+		break;
+
+	case VK_ESCAPE:
+		glutLeaveMainLoop();
 		break;
 	}
 }
@@ -194,7 +228,7 @@ GLvoid KeyboardUp(unsigned char key, int x, int y)
 	}
 }
 
-//// 타이머
+//// 타이머 (객체 변환은 여기서, 변환 다 했으면 마지막에 update 넣어주기)
 GLvoid TimerFunction(int value)
 {
 
