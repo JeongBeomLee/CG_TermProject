@@ -157,18 +157,13 @@ GLfloat cameraRotateDegree = 0.f;
 
 void setCamera()
 {
+	glm::vec3 cameraPos = glm::vec3(cameraX, cameraY, cameraZ); //--- 카메라 위치
+	glm::vec3 cameraDirection = glm::vec3(0.0f, 0.0f, 0.0f); //--- 카메라 바라보는 방향
+	glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f); //--- 카메라 위쪽 방향
 	glm::mat4 view = glm::mat4(1.0f);
 
-	glm::vec3 cameraPos = glm::vec3(cameraX, 45.f, cameraZ);
-	cameraPos = glm::rotate(cameraPos, glm::radians(cameraRotateDegree), glm::vec3(0.0, 1.0, 0.0));
-	glm::vec3 cameraTarget = glm::vec3(0.f, 0.f, 0.f);
-	glm::vec3 cameraDirection = glm::normalize(cameraPos - cameraTarget);
-
-	glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
-	glm::vec3 Right = glm::normalize(glm::cross(up, cameraDirection));
-	glm::vec3 cameraUp = glm::cross(cameraDirection, Right);
-
 	view = glm::lookAt(cameraPos, cameraDirection, cameraUp);
+	view = glm::rotate(view, glm::radians(cameraRotateDegree), glm::vec3(0.f, 1.f, 0.f));
 	unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
 	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
 }
