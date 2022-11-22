@@ -16,7 +16,6 @@ void PLAYER::scaleTransform(float x, float y, float z)
 	vec_transform.emplace_back(scale);
 }
 
-
 //--- 회전 변환
 void PLAYER::rotateTransform(float x, float y, float z, float degree)
 {
@@ -79,4 +78,12 @@ void PLAYER::changeColor(int R, int G, int B)
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBO[1]);
 	glBufferData(GL_ARRAY_BUFFER, colorData.size() * sizeof(glm::vec3), &colorData[0], GL_STATIC_DRAW);
+}
+
+PLAYER::PLAYER()
+{
+}
+
+PLAYER::~PLAYER()
+{
 }

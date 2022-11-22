@@ -1,5 +1,10 @@
 #include "pch.h"
+#include "PLAYER.h"
+#include "MONSTER.h"
+#include "GEM.h"
+#include "PET.h"
 #include "MAP.h"
+#include "CAMERA.h"
 
 void make_vertexShaders();
 void make_fragmentShaders();
@@ -26,7 +31,6 @@ char* filetobuf(const char* file)
 	buf[length] = 0; // Null terminator 
 	return buf; // Return the buffer 
 }
-
 void make_vertexShaders()
 {
 	GLchar* vertexsource;
@@ -65,7 +69,6 @@ void make_fragmentShaders()
 		return;
 	}
 }
-
 void InitShader()
 {
 	make_vertexShaders();
@@ -81,11 +84,7 @@ void InitShader()
 	glUseProgram(coreShader);
 }
 void render();
-//--- 다시그리기 콜백 함수
-void Reshape(int w, int h)
-{
-	glViewport(0, 0, w, h); //--- 전체 윈도우를 사용해서 출력
-}
+void Reshape(int w, int h);
 
 void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
 {
@@ -95,12 +94,12 @@ void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
 	glutInitWindowPosition(100, 100);
 	glutInitWindowSize(800, 600);
 	glutCreateWindow("Example1");
-
 	
 	//--- GLEW 초기화하기
 	glewExperimental = GL_TRUE;
 	glewInit();
 	InitShader();
+
 	glEnable(GL_DEPTH_TEST);    // 은면 제거
 	glEnable(GL_DITHER);        // 표면을 매끄럽게
 	glEnable(GL_CULL_FACE);     // 컬링
@@ -119,4 +118,9 @@ void render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glutSwapBuffers();
+}
+
+void Reshape(int w, int h)
+{
+	glViewport(0, 0, w, h); //--- 전체 윈도우를 사용해서 출력
 }

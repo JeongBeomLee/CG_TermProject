@@ -4,7 +4,6 @@
 class MAP
 {
 private:
-
 	// 좌표, 바운딩박스
 	GLfloat x;
 	GLfloat y;
