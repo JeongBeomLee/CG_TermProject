@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="쉐이더">
-      <UniqueIdentifier>{05a06a37-747d-434a-8408-0d427351000d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="PCH">
       <UniqueIdentifier>{8963485b-8e5c-4ca7-90ba-41231c420261}</UniqueIdentifier>
     </Filter>
@@ -36,6 +33,9 @@
     </Filter>
     <Filter Include="PLAYER">
       <UniqueIdentifier>{62caa005-562a-43d6-a55a-2bd48071c975}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{05a06a37-747d-434a-8408-0d427351000d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -89,10 +89,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="vertex.glsl">
-      <Filter>쉐이더</Filter>
+      <Filter>Shader</Filter>
     </None>
     <None Include="fragment.glsl">
-      <Filter>쉐이더</Filter>
+      <Filter>Shader</Filter>
     </None>
   </ItemGroup>
 </Project>
