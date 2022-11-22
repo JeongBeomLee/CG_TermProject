@@ -109,18 +109,7 @@ GLuint make_shaderProgram()
 	//--- 사용하기 직전에 호출할 수 있다.
 	return ShaderProgramID;
 }
-GLvoid initPlayer()
-{
-	pacmanTop.init(255, 255, 0, "asset/packman_top.obj");
-	pacmanBot.init(255, 255, 0, "asset/packman_bottom.obj");
 
-	pacmanTop.scaleTransform(100.0, 100.0, 100.0);
-	pacmanBot.scaleTransform(100.0, 100.0, 100.0);
-
-
-	pacmanTop.update();
-	pacmanBot.update();
-}
 
 void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
 {
@@ -208,6 +197,8 @@ void Render()
 	/// 그리기 (그리기 전에 main에서 init, update 해주기)
 	pacmanTop.draw();
 	pacmanBot.draw();
+	pacmanEyes.draw();
+	pacmanNose.draw();
 
 	/// 그리기 (변환은 타이머에서 적용해주고, 마지막에 update 넣어주기)
 
@@ -247,7 +238,7 @@ GLvoid KeyboardDown(unsigned char key, int x, int y)
 		break;
 
 	case ' ':
-		cameraRotateDegree += 1.0;
+		cameraRotateDegree += 5.0;
 		break;
 
 	case VK_ESCAPE:
@@ -269,7 +260,8 @@ GLvoid KeyboardUp(unsigned char key, int x, int y)
 //// 타이머 (객체 변환은 여기서, 변환 다 했으면 마지막에 update 넣어주기)
 GLvoid TimerFunction(int value)
 {
-
+	animatePlayer();
+	redrawPlayer();
 	glutTimerFunc(10, TimerFunction, 1);
 	glutPostRedisplay();
 }
