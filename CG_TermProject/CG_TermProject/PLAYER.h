@@ -42,3 +42,16 @@ public:
 	PLAYER();
 	~PLAYER();
 };
+
+// 敲饭捞绢 按眉 (拉个, 酒阀个, 传, 内)
+extern PLAYER pacmanTop;
+extern PLAYER pacmanBot;
+extern PLAYER pacmanEyes;
+extern PLAYER pacmanNose;
+extern GLboolean plusDeg;
+extern GLfloat   deg;
+
+
+GLvoid initPlayer();
+GLvoid redrawPlayer();
+GLvoid animatePlayer();
