@@ -17,12 +17,22 @@ GLvoid TimerFunction(int value);
 GLfloat winWidth, winHeight;
 
 // 쉐이더 관련 함수, 변수
-void make_vertexShaders();
-void make_fragmentShaders();
+void make_vertexShader();
+void make_fragmentShader();
+GLuint ShaderProgramID;
 GLuint shaderID; //--- 세이더 프로그램 이름
 GLuint vertexShader; //--- 버텍스 세이더 객체
+GLchar* vertexSource;
 GLuint fragmentShader;
-GLuint coreShader{};
+GLchar* fragmentSource;
+
+// 플레이어 객체 (윗몸, 아랫몸, 눈, 코)
+PLAYER pacmanTop;
+PLAYER pacmanBot;
+PLAYER pacmanEyes;
+PLAYER pacmanNose;
+
+GLvoid initPlayer();
 
 char* filetobuf(const char* file)
 {
@@ -41,15 +51,13 @@ char* filetobuf(const char* file)
 	buf[length] = 0; // Null terminator 
 	return buf; // Return the buffer 
 }
-void make_vertexShaders()
+void make_vertexShader()
 {
-	GLchar* vertexsource;
 	//--- 버텍스 세이더 읽어 저장하고 컴파일 하기
 	//--- filetobuf: 사용자정의 함수로 텍스트를 읽어서 문자열에 저장하는 함수
-	vertexsource = filetobuf("vertex.glsl");
-
+	vertexSource = filetobuf("vertex.glsl");
 	vertexShader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vertexShader, 1, &vertexsource, NULL);
+	glShaderSource(vertexShader, 1, &vertexSource, NULL);
 	glCompileShader(vertexShader);
 	GLint result;
 	GLchar errorLog[512];
@@ -57,17 +65,16 @@ void make_vertexShaders()
 	if (!result)
 	{
 		glGetShaderInfoLog(vertexShader, 512, NULL, errorLog);
-		cerr << "ERROR: vertex shader 컴파일 실패\n" << errorLog << endl;
+		std::cerr << "ERROR: vertex shader 컴파일 실패\n" << errorLog << std::endl;
 		return;
 	}
 }
-void make_fragmentShaders()
+void make_fragmentShader()
 {
-	GLchar* fragmentsource;
 	//--- 프래그먼트 세이더 읽어 저장하고 컴파일하기
-	fragmentsource = filetobuf("fragment.glsl"); // 프래그세이더 읽어오기
+	fragmentSource = filetobuf("fragment.glsl"); // 프래그세이더 읽어오기
 	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &fragmentsource, NULL);
+	glShaderSource(fragmentShader, 1, &fragmentSource, NULL);
 	glCompileShader(fragmentShader);
 	GLint result;
 	GLchar errorLog[512];
@@ -75,23 +82,44 @@ void make_fragmentShaders()
 	if (!result)
 	{
 		glGetShaderInfoLog(fragmentShader, 512, NULL, errorLog);
-		cerr << "ERROR: fragment shader 컴파일 실패\n" << errorLog << endl;
+		std::cerr << "ERROR: fragment shader 컴파일 실패\n" << errorLog << std::endl;
 		return;
 	}
 }
-void InitShader()
+GLuint make_shaderProgram()
 {
-	make_vertexShaders();
-	make_fragmentShaders();
-
-	coreShader = glCreateProgram();
-	glAttachShader(coreShader, vertexShader);
-	glAttachShader(coreShader, fragmentShader);
-	glLinkProgram(coreShader);
-	glDeleteShader(vertexShader);
+	ShaderProgramID = glCreateProgram(); //--- 세이더 프로그램 만들기
+	glAttachShader(ShaderProgramID, vertexShader); //--- 세이더 프로그램에 버텍스 세이더 붙이기
+	glAttachShader(ShaderProgramID, fragmentShader); //--- 세이더 프로그램에 프래그먼트 세이더 붙이기
+	glLinkProgram(ShaderProgramID); //--- 세이더 프로그램 링크하기
+	glDeleteShader(vertexShader); //--- 세이더 객체를 세이더 프로그램에 링크했음으로, 세이더 객체 자체는 삭제 가능
 	glDeleteShader(fragmentShader);
 
-	glUseProgram(coreShader);
+	GLint result;
+	GLchar errorLog[512];
+	glGetProgramiv(ShaderProgramID, GL_LINK_STATUS, &result); // ---세이더가 잘 연결되었는지 체크하기
+	if (!result) {
+		glGetProgramInfoLog(ShaderProgramID, 512, NULL, errorLog);
+		std::cerr << "ERROR: shader program 연결 실패\n" << errorLog << std::endl;
+		return false;
+	}
+	glUseProgram(ShaderProgramID); //--- 만들어진 세이더 프로그램 사용하기
+	//--- 여러 개의 세이더프로그램 만들 수 있고, 그 중 한개의 프로그램을 사용하려면
+	//--- glUseProgram 함수를 호출하여 사용 할 특정 프로그램을 지정한다.
+	//--- 사용하기 직전에 호출할 수 있다.
+	return ShaderProgramID;
+}
+GLvoid initPlayer()
+{
+	pacmanTop.init(255, 255, 0, "asset/packman_top.obj");
+	pacmanBot.init(255, 255, 0, "asset/packman_bottom.obj");
+
+	pacmanTop.scaleTransform(100.0, 100.0, 100.0);
+	pacmanBot.scaleTransform(100.0, 100.0, 100.0);
+
+
+	pacmanTop.update();
+	pacmanBot.update();
 }
 
 void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
@@ -108,7 +136,12 @@ void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
 	//--- GLEW 초기화하기
 	glewExperimental = GL_TRUE;
 	glewInit();
-	InitShader();
+
+	//--- 세이더 읽어와서 세이더 프로그램 만들기
+	make_vertexShader(); //--- 버텍스 세이더 만들기
+	make_fragmentShader(); //--- 프래그먼트 세이더 만들기
+	shaderID = make_shaderProgram(); //--- 세이더 프로그램 만들기
+	glUseProgram(shaderID);
 
 	glEnable(GL_DEPTH_TEST);    // 은면 제거
 	glEnable(GL_DITHER);        // 표면을 매끄럽게
@@ -116,6 +149,8 @@ void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
 	glEnable(GL_LINE_SMOOTH);   // 안티 앨리어싱
 	glEnable(GL_POLYGON_SMOOTH);// 안티 앨리어싱
 	glShadeModel(GL_SMOOTH);    // 부드러운 음영을 수행합니다.
+
+	initPlayer();
 
 	glutDisplayFunc(Render);
 	glutReshapeFunc(Reshape);
@@ -163,7 +198,7 @@ void setProjection()
 
 void Render()
 {
-	glClearColor(0.0, 0.0, 0.0, 0.0f);
+	glClearColor(1.0, 1.0, 1.0, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	setCamera();     // 카메라 설정
@@ -171,11 +206,13 @@ void Render()
 
 
 	/// 그리기 (그리기 전에 main에서 init, update 해주기)
-	
+	pacmanTop.draw();
+	pacmanBot.draw();
 
 	/// 그리기 (변환은 타이머에서 적용해주고, 마지막에 update 넣어주기)
 
 	glutSwapBuffers();
+	glutPostRedisplay();
 }
 
 void Reshape(int w, int h)
@@ -217,6 +254,7 @@ GLvoid KeyboardDown(unsigned char key, int x, int y)
 		glutLeaveMainLoop();
 		break;
 	}
+	glutPostRedisplay();
 }
 
 //// 키보드 올림

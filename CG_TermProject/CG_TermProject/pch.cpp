@@ -24,19 +24,8 @@ void ReadObj(string file, vector<glm::vec3>* vertexData, vector<glm::vec3>* colo
 				vertemp[i] = atof(word.c_str());
 			}
 			vertexData->emplace_back(vertemp);
-		}
-		else if (temp[0] == 'c' && temp[1] == ' ') {
-			istringstream slice(temp);
+			colorData->emplace_back(glm::vec3(0.f, 0.f, 0.f));
 
-			glm::vec3 colortemp;
-			for (int i = -1; i < 3; ++i) {
-				string word;
-				getline(slice, word, ' ');
-				if (i == -1) continue;                  // c ÀÐÀ»¶© °Ç³Ê¶Ú´Ù
-
-				colortemp[i] = atof(word.c_str());
-			}
-			colorData->emplace_back(colortemp);
 		}
 		else if (temp[0] == 'f' && temp[1] == ' ') {
 			istringstream slice(temp);

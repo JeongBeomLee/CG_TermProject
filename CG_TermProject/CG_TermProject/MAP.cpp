@@ -2,7 +2,7 @@
 
 void MAP::init(int R, int G, int B)
 {
-	ReadObj("BOX.obj", &vertexData, &colorData, &faceData);
+	ReadObj("asset/BOX.obj", &vertexData, &colorData, &faceData);
 	initBuffer(&VAO, VBO, &EBO, vertexData, colorData, faceData);
 	changeColor(R, G, B);
 }
