@@ -1,12 +1,13 @@
 #include "pch.h"
+#include "MAP.h"
 
 void make_vertexShaders();
 void make_fragmentShaders();
-GLuint make_shaderProgram();
 GLvoid Reshape(int w, int h);
 GLuint shaderID; //--- 세이더 프로그램 이름
 GLuint vertexShader; //--- 버텍스 세이더 객체
 GLuint fragmentShader;
+GLuint coreShader{};
 
 char* filetobuf(const char* file)
 {
@@ -65,7 +66,6 @@ void make_fragmentShaders()
 	}
 }
 
-GLuint coreShader{};
 void InitShader()
 {
 	make_vertexShaders();
