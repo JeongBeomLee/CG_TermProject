@@ -1,8 +1,10 @@
-﻿  MONSTER.cpp
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(43,19): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(44,21): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(45,16): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(46,22): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(56,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(77,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+﻿  main.cpp
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(132,1): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(139,31): warning C4244: '인수': 'GLfloat'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(139,21): warning C4244: '인수': 'GLfloat'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(189,11): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(190,11): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(196,10): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(197,10): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(329,2): warning C4060: switch문에 'case' 또는 'default' 레이블이 없습니다.
   CG_TermProject.vcxproj -> C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\Debug\CG_TermProject.exe

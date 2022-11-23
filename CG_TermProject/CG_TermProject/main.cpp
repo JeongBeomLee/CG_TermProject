@@ -125,10 +125,8 @@ GLuint make_shaderProgram()
 	return ShaderProgramID;
 }
 
-	pacmanTop.update();
-	pacmanBot.update();
-}
-
+	//pacmanTop.update();
+	//pacmanBot.update();
 
 void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
 {
@@ -218,14 +216,17 @@ void mouse_passive(int x, int y)
 
 	glutPostRedisplay();
 }
-// 테스트용 카메라, 뷰포트임 나중에 객체로 만들어서 관리할 것임. 입맛대로 바꿔서 쓰세요
+glm::mat4 view;
 GLfloat cameraX = 103.f;
 GLfloat cameraY = 38.f;
 GLfloat cameraZ = 0.f;
 GLfloat cameraRotateDegree = 0.f;
-glm::mat4 view = glm::mat4(1.0f);
+void setCamera(){
+
+// 테스트용 카메라, 뷰포트임 나중에 객체로 만들어서 관리할 것임. 입맛대로 바꿔서 쓰세요
+
 	 view = glm::mat4(1.0f);
-	glm::mat4 view = glm::mat4(1.0f);
+
 	 //3인칭 쿼터뷰 시점
 	 cameraPos = glm::vec3(0.0, 900.f, 5.0);
 	 cameraFront = glm::vec3(0.f, 0.f, 0.f);
@@ -233,14 +234,12 @@ glm::mat4 view = glm::mat4(1.0f);
 	 view = glm::lookAt(cameraPos,  cameraFront, cameraUp);
 	 unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
 	 glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
-	//1인칭 카메라 SET passivemouse 사용해서 움직임
+
+	//1인칭 카메라 SET passivemouse 사용해서 움직임 3인칭 주석 시키고 밑에꺼 주석풀면 사용가능
 	//view = glm::lookAt(cameraPos, cameraPos+cameraFront, cameraUp);
 	//unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
 	//glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
-	unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
-	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
-	unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
-	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
+
 }
 void setProjection()
 {
@@ -259,6 +258,7 @@ void Render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	setCamera();     // 카메라 설정
+	setProjection();
 	//pacmanTop.draw();
 	//pacmanBot.draw();
 	for(int i{};i<327;++i)
@@ -353,6 +353,8 @@ void sp_keybord(int key, int x, int y)
 
 	glutPostRedisplay();
 }
+
+void TimerFunction(int value){
 	//첫번째 Ghost AI
 	first_ghost_body.AI_FIRST();
 	first_ghost_eye.AI_FIRST();
@@ -380,8 +382,7 @@ void sp_keybord(int key, int x, int y)
 
 //// 타이머 (객체 변환은 여기서, 변환 다 했으면 마지막에 update 넣어주기)
 
-{
 
-	glutTimerFunc(10, TimerFunction, 1);
-	glutPostRedisplay();
+		glutTimerFunc(10, TimerFunction, 1);
+		glutPostRedisplay();
 }
