@@ -1,5 +1,8 @@
 #include "PLAYER.h"
 
+GLfloat deg = 0.f;
+GLboolean plusDeg = true;
+
 void PLAYER::init(int R, int G, int B, string str)
 {
 	ReadObj(str, &vertexData, &colorData, &faceData);
@@ -87,3 +90,63 @@ PLAYER::PLAYER()
 PLAYER::~PLAYER()
 {
 }
+
+GLvoid initPlayer()
+{
+	pacmanTop.init(255, 255, 0, "asset/packman_top.obj");
+	pacmanBot.init(255, 255, 0, "asset/packman_bottom.obj");
+	pacmanEyes.init(0, 0, 0, "asset/packman_eyes.obj");
+	pacmanNose.init(255, 255, 0, "asset/packman_nose.obj");
+
+
+	pacmanTop.scaleTransform(100.0, 100.0, 100.0);
+	pacmanBot.scaleTransform(100.0, 100.0, 100.0);
+	pacmanEyes.scaleTransform(100.0, 100.0, 100.0);
+	pacmanNose.scaleTransform(100.0, 100.0, 100.0);
+
+	pacmanTop.update();
+	pacmanBot.update();
+	pacmanEyes.update();
+	pacmanNose.update();
+}
+
+GLvoid redrawPlayer()
+{
+	pacmanTop.scaleTransform(100.0, 100.0, 100.0);
+	pacmanTop.rotateTransform(1.f, 0.f, 0.f, -deg);
+	pacmanBot.scaleTransform(100.0, 100.0, 100.0);
+	pacmanBot.rotateTransform(1.f, 0.f, 0.f, deg);
+
+	pacmanEyes.scaleTransform(100.0, 100.0, 100.0);
+	pacmanEyes.rotateTransform(1.f, 0.f, 0.f, -deg);
+
+	pacmanNose.scaleTransform(100.0, 100.0, 100.0);
+	pacmanNose.rotateTransform(1.f, 0.f, 0.f, -deg);
+
+
+	pacmanTop.update();
+	pacmanBot.update();
+	pacmanEyes.update();
+	pacmanNose.update();
+}
+
+GLvoid animatePlayer()
+{
+	if (plusDeg) 
+	{ 
+		deg += 1.0f; 
+		if (deg >= 20.0f)
+		{
+			plusDeg = false;
+		}
+	}
+	else
+	{
+		deg -= 1.0f;
+		if (deg <= 0.0f)
+		{
+			plusDeg = true;
+		}
+	}
+}
+

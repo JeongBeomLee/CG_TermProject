@@ -124,18 +124,12 @@ GLuint make_shaderProgram()
 	//--- 사용하기 직전에 호출할 수 있다.
 	return ShaderProgramID;
 }
-GLvoid initPlayer()
-{
-	pacmanTop.init(255, 255, 0, "asset/packman_top.obj");
-	pacmanBot.init(255, 255, 0, "asset/packman_bottom.obj");
-
-	pacmanTop.scaleTransform(100.0, 100.0, 100.0);
-	pacmanBot.scaleTransform(100.0, 100.0, 100.0);
-
 
 	pacmanTop.update();
 	pacmanBot.update();
 }
+
+
 void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
 {
 	winWidth = 1600.f;
@@ -230,10 +224,8 @@ GLfloat cameraY = 38.f;
 GLfloat cameraZ = 0.f;
 GLfloat cameraRotateDegree = 0.f;
 glm::mat4 view = glm::mat4(1.0f);
-void setCamera()
-{
 	 view = glm::mat4(1.0f);
-
+	glm::mat4 view = glm::mat4(1.0f);
 	 //3인칭 쿼터뷰 시점
 	 cameraPos = glm::vec3(0.0, 900.f, 5.0);
 	 cameraFront = glm::vec3(0.f, 0.f, 0.f);
@@ -245,6 +237,10 @@ void setCamera()
 	//view = glm::lookAt(cameraPos, cameraPos+cameraFront, cameraUp);
 	//unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
 	//glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
+	unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
+	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
+	unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
+	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
 }
 void setProjection()
 {
@@ -263,14 +259,14 @@ void Render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	setCamera();     // 카메라 설정
-	setProjection(); // 투영 공간 설정
-
-
-	/// 그리기 (그리기 전에 main에서 init, update 해주기)
 	//pacmanTop.draw();
 	//pacmanBot.draw();
 	for(int i{};i<327;++i)
 		map[i].draw();
+	pacmanTop.draw();
+	pacmanBot.draw();
+	pacmanTop.draw();
+	pacmanBot.draw();
 
 	first_ghost_body.draw();
 	first_ghost_eye.draw();
@@ -315,7 +311,7 @@ GLvoid KeyboardDown(unsigned char key, int x, int y)
 		break;
 
 	case ' ':
-		cameraRotateDegree += 1.0;
+		cameraRotateDegree += 5.0;
 		break;
 
 	case VK_ESCAPE:
@@ -357,10 +353,6 @@ void sp_keybord(int key, int x, int y)
 
 	glutPostRedisplay();
 }
-
-//// 타이머 (객체 변환은 여기서, 변환 다 했으면 마지막에 update 넣어주기)
-GLvoid TimerFunction(int value)
-{
 	//첫번째 Ghost AI
 	first_ghost_body.AI_FIRST();
 	first_ghost_eye.AI_FIRST();
@@ -385,6 +377,10 @@ GLvoid TimerFunction(int value)
 	//		cout << "collide" << endl;
 	//}
 	//====================================================================
+
+//// 타이머 (객체 변환은 여기서, 변환 다 했으면 마지막에 update 넣어주기)
+
+{
 
 	glutTimerFunc(10, TimerFunction, 1);
 	glutPostRedisplay();
