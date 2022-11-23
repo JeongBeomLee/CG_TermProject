@@ -71,3 +71,14 @@ void initBuffer(GLuint* VAO, GLuint* VBO, GLuint* EBO, vector<glm::vec3> vertexD
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, faceData.size() * sizeof(glm::ivec3), &faceData[0], GL_STATIC_DRAW);
 }
+
+bool MyintersectRect(RECT& a, RECT& b)
+{
+	if (a.top <= b.bottom &&
+		a.right >= b.left &&
+		a.left <= b.right &&
+		a.bottom >= b.top)
+		return TRUE;
+
+	else return false;
+}

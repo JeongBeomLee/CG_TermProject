@@ -32,3 +32,4 @@ extern GLfloat winWidth, winHeight;
 
 void ReadObj(string file, vector<glm::vec3>* vertexData, vector<glm::vec3>* colorData, vector<glm::ivec3>* faceData); //--- 오브젝트 읽어오기
 void initBuffer(GLuint* VAO, GLuint* VBO, GLuint* EBO, vector<glm::vec3> vertexData, vector<glm::vec3> colorData, vector<glm::ivec3> faceData); //--- 오브젝트 정보 저장하기
+bool MyintersectRect(RECT& a, RECT& b);

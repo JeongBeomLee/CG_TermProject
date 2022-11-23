@@ -5,11 +5,10 @@ class MAP
 {
 private:
 	// 좌표, 바운딩박스
-	GLfloat x;
-	GLfloat y;
-	GLfloat z;
-	RECT rect;
+	GLfloat pos_x;
+	GLfloat pos_z;
 
+	RECT rect;
 	// VAO, VBO, EBO
 	GLuint VAO, VBO[2], EBO;
 
@@ -33,11 +32,12 @@ public:
 	void moveTranform(float x, float y, float z); //--- 이동 변환
 	void update();
 	void draw();
+	RECT get_bb();
 
 	void changeColor(int R, int G, int B); // 색 변경 (0 ~ 255)
-
 public:
 	MAP();
 	~MAP();
 };
 
+void InitMap(MAP map[327]);

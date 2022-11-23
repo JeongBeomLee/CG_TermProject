@@ -26,13 +26,28 @@ GLchar* vertexSource;
 GLuint fragmentShader;
 GLchar* fragmentSource;
 
+//입력함수들
+void mouse_passive(int x, int y); //1인칭 시점때 사용
+void sp_keybord(int key, int x, int y); //1인칭 시점때 이동
+
 // 플레이어 객체 (윗몸, 아랫몸, 눈, 코)
 PLAYER pacmanTop;
 PLAYER pacmanBot;
 PLAYER pacmanEyes;
 PLAYER pacmanNose;
-
 GLvoid initPlayer();
+
+//고스트 객체 5마리 예정
+GHOST first_ghost_body;
+GHOST first_ghost_eye;
+GHOST second_ghost_body;
+GHOST second_ghost_eye;
+GHOST third_ghost_body;
+GHOST third_ghost_eye;
+
+// 맵
+MAP map[327]{};
+
 
 char* filetobuf(const char* file)
 {
@@ -121,7 +136,6 @@ GLvoid initPlayer()
 	pacmanTop.update();
 	pacmanBot.update();
 }
-
 void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
 {
 	winWidth = 1600.f;
@@ -150,47 +164,94 @@ void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
 	glEnable(GL_POLYGON_SMOOTH);// 안티 앨리어싱
 	glShadeModel(GL_SMOOTH);    // 부드러운 음영을 수행합니다.
 
-	initPlayer();
+	/*initPlayer();*/
+
+	// 유령객체 Init
+	InitGhost(first_ghost_body, first_ghost_eye,250.,-270.);
+	InitGhost(second_ghost_body, second_ghost_eye,-110.,-70.);
+	InitGhost(third_ghost_body, third_ghost_eye, -50, -270);
+	//맵 Init
+	InitMap(map);
 
 	glutDisplayFunc(Render);
 	glutReshapeFunc(Reshape);
 	glutKeyboardFunc(KeyboardDown);
 	glutKeyboardUpFunc(KeyboardUp);
+	glutSpecialFunc(sp_keybord);
+	glutPassiveMotionFunc(mouse_passive);
 	glutTimerFunc(10, TimerFunction, 1);
 	glutMainLoop();
 }
+bool firstMouse{ TRUE };
+float yaw{};
+float pitch{};
+float lastX = 800, lastY = 400;
 
+glm::vec3 cameraPos		=glm::vec3(250., 10.f, -250.);;
+glm::vec3 cameraFront	=glm::vec3(0.0, 0.0, 0.0);;
+glm::vec3 cameraUp		=glm::vec3(0.0, 1.0, 0.0);;
+void mouse_passive(int x, int y)
+{
+	if (firstMouse)
+	{
+		lastX = x;
+		lastY = y;
+		firstMouse = false;
+	}
+
+	float xoffset = x - lastX;
+	float yoffset = lastY - y;
+	lastX = x;
+	lastY = y;
+
+	float sensitivity = 0.5;
+	xoffset *= sensitivity;
+	yoffset *= sensitivity;
+
+	yaw += xoffset;
+	pitch += yoffset;
+
+	if (pitch > 359.0f)
+		pitch = 359.0f;
+	if (pitch < -359.0f)
+		pitch = -359.0f;
+
+	glm::vec3 front;
+	front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+	front.y = sin(glm::radians(pitch));
+	front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+	cameraFront = glm::normalize(front);
+
+	glutPostRedisplay();
+}
 // 테스트용 카메라, 뷰포트임 나중에 객체로 만들어서 관리할 것임. 입맛대로 바꿔서 쓰세요
 GLfloat cameraX = 103.f;
 GLfloat cameraY = 38.f;
 GLfloat cameraZ = 0.f;
 GLfloat cameraRotateDegree = 0.f;
-
+glm::mat4 view = glm::mat4(1.0f);
 void setCamera()
 {
-	glm::mat4 view = glm::mat4(1.0f);
+	 view = glm::mat4(1.0f);
 
-	glm::vec3 cameraPos = glm::vec3(cameraX, 45.f, cameraZ);
-	cameraPos = glm::rotate(cameraPos, glm::radians(cameraRotateDegree), glm::vec3(0.0, 1.0, 0.0));
-	glm::vec3 cameraTarget = glm::vec3(0.f, 0.f, 0.f);
-	glm::vec3 cameraDirection = glm::normalize(cameraPos - cameraTarget);
-
-	glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
-	glm::vec3 Right = glm::normalize(glm::cross(up, cameraDirection));
-	glm::vec3 cameraUp = glm::cross(cameraDirection, Right);
-
-	view = glm::lookAt(cameraPos, cameraDirection, cameraUp);
-	unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
-	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
+	 //3인칭 쿼터뷰 시점
+	 cameraPos = glm::vec3(0.0, 900.f, 5.0);
+	 cameraFront = glm::vec3(0.f, 0.f, 0.f);
+	 cameraUp = glm::vec3(0.0, 1.0, 0.0);
+	 view = glm::lookAt(cameraPos,  cameraFront, cameraUp);
+	 unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
+	 glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
+	//1인칭 카메라 SET passivemouse 사용해서 움직임
+	//view = glm::lookAt(cameraPos, cameraPos+cameraFront, cameraUp);
+	//unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
+	//glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
 }
-
 void setProjection()
 {
 	glm::mat4 projection = glm::mat4(1.0f);
 
-	projection = glm::perspective(glm::radians(45.0f), winWidth / winHeight, 10.f, 1000.0f);
-	projection = glm::rotate(projection, glm::radians(0.f), glm::vec3(0.0, 1.0, 0.0));
-	//projection = glm::translate(projection, glm::vec3(camera_x, camera_y, camera_z));
+	projection = glm::perspective(glm::radians(45.0f), winWidth / winHeight, 0.1f, 1000.0f);
+	/*projection = glm::rotate(projection, glm::radians(0.f), glm::vec3(0.0, 1.0, 0.0));*/
 
 	unsigned int projectionLocation = glGetUniformLocation(shaderID, "projectionTransform");
 	glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, &projection[0][0]);
@@ -206,13 +267,20 @@ void Render()
 
 
 	/// 그리기 (그리기 전에 main에서 init, update 해주기)
-	pacmanTop.draw();
-	pacmanBot.draw();
+	//pacmanTop.draw();
+	//pacmanBot.draw();
+	for(int i{};i<327;++i)
+		map[i].draw();
 
+	first_ghost_body.draw();
+	first_ghost_eye.draw();
+	second_ghost_body.draw();
+	second_ghost_eye.draw();
+	third_ghost_body.draw();
+	third_ghost_eye.draw();
 	/// 그리기 (변환은 타이머에서 적용해주고, 마지막에 update 넣어주기)
 
 	glutSwapBuffers();
-	glutPostRedisplay();
 }
 
 void Reshape(int w, int h)
@@ -265,10 +333,58 @@ GLvoid KeyboardUp(unsigned char key, int x, int y)
 		break;
 	}
 }
+//스페셜 키보드~
+void sp_keybord(int key, int x, int y)
+{
+	float cameraSpeed = 0.5f;
+	if (key == GLUT_KEY_UP)
+	{
+		cameraPos += cameraSpeed * cameraFront;
+	}
+	else if (key == GLUT_KEY_DOWN)
+	{
+		cameraPos -= cameraSpeed * cameraFront;
+	}
+	else if (key == GLUT_KEY_LEFT)
+	{
+		cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+	}
+	else if (key == GLUT_KEY_RIGHT)
+	{
+
+		cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+	}
+
+	glutPostRedisplay();
+}
 
 //// 타이머 (객체 변환은 여기서, 변환 다 했으면 마지막에 update 넣어주기)
 GLvoid TimerFunction(int value)
 {
+	//첫번째 Ghost AI
+	first_ghost_body.AI_FIRST();
+	first_ghost_eye.AI_FIRST();
+	//두번째 Ghost AI
+	second_ghost_body.AI_SECOND();
+	second_ghost_eye.AI_SECOND();
+	//세번째 Ghost AI
+	third_ghost_body.AI_THIRD();
+	third_ghost_eye.AI_THIRD();
+	
+	//====================================================================
+	//충돌 검사 작동확인중 충돌 정상작동함	 pch에 my_intersectrect 만든거 사용요망
+	//RECT m_temp[327];
+	//RECT g_temp = second_ghost_body.get_BB();
+	//for (int i{}; i < 327; ++i)
+	//{
+	//	m_temp[i] = map[i].get_bb();
+	//}
+	//for (int i{}; i < 327; ++i)
+	//{
+	//	if (MyintersectRect(g_temp, m_temp[i]))
+	//		cout << "collide" << endl;
+	//}
+	//====================================================================
 
 	glutTimerFunc(10, TimerFunction, 1);
 	glutPostRedisplay();
