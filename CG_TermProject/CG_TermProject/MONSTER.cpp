@@ -40,10 +40,10 @@ RECT GHOST::get_BB()
 {
 	RECT temp;
 
-	temp.bottom = abs(z + dz + 15.0);
-	temp.left = x + dx - 15.0;
-	temp.top = abs(z + dz - 15.0);
-	temp.right = x + dx + 15.0;
+	temp.left   = x + dx - 15.0;
+	temp.top    = abs(z + dz - 15.0);
+	temp.right  = x + dx + 15.0;
+	temp.bottom = -abs(z + dz + 15.0);
 
 
 	return temp;
