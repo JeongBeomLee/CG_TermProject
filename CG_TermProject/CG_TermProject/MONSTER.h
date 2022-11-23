@@ -8,8 +8,8 @@ private:
 	GLfloat x;
 	GLfloat z;
 
-	GLfloat dx=0;
-	GLfloat dz=0;
+	GLfloat dx = 0;
+	GLfloat dz = 0;
 
 	// VAO, VBO, EBO
 	GLuint VAO, VBO[2], EBO;

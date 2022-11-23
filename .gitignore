@@ -1,8 +1,6 @@
+# S_K_JJANG
 
-*.ipch
-CG_TermProject/.vs/CG_TermProject/v17/Browse.VC.opendb
-
-**/x64/*
-**/Debug/*
-**/Release/*
-**/.vs/*
+**/.vs/
+**/Debug/
+**/Release/
+**/x64/

@@ -98,11 +98,10 @@ GLvoid initPlayer()
 	pacmanEyes.init(0, 0, 0, "asset/packman_eyes.obj");
 	pacmanNose.init(255, 255, 0, "asset/packman_nose.obj");
 
-
-	pacmanTop.scaleTransform(100.0, 100.0, 100.0);
-	pacmanBot.scaleTransform(100.0, 100.0, 100.0);
-	pacmanEyes.scaleTransform(100.0, 100.0, 100.0);
-	pacmanNose.scaleTransform(100.0, 100.0, 100.0);
+	pacmanTop.scaleTransform(50.0, 50.0, 50.0);
+	pacmanBot.scaleTransform (50.0, 50.0, 50.0);
+	pacmanEyes.scaleTransform(50.0, 50.0, 50.0);
+	pacmanNose.scaleTransform(50.0, 50.0, 50.0);
 
 	pacmanTop.update();
 	pacmanBot.update();
@@ -112,17 +111,17 @@ GLvoid initPlayer()
 
 GLvoid redrawPlayer()
 {
-	pacmanTop.scaleTransform(100.0, 100.0, 100.0);
+	pacmanTop.scaleTransform (50.0, 50.0, 50.0);
 	pacmanTop.rotateTransform(1.f, 0.f, 0.f, -deg);
-	pacmanBot.scaleTransform(100.0, 100.0, 100.0);
+
+	pacmanBot.scaleTransform (50.0, 50.0, 50.0);
 	pacmanBot.rotateTransform(1.f, 0.f, 0.f, deg);
 
-	pacmanEyes.scaleTransform(100.0, 100.0, 100.0);
+	pacmanEyes.scaleTransform(50.0, 50.0, 50.0);
 	pacmanEyes.rotateTransform(1.f, 0.f, 0.f, -deg);
 
-	pacmanNose.scaleTransform(100.0, 100.0, 100.0);
+	pacmanNose.scaleTransform(50.0, 50.0, 50.0);
 	pacmanNose.rotateTransform(1.f, 0.f, 0.f, -deg);
-
 
 	pacmanTop.update();
 	pacmanBot.update();

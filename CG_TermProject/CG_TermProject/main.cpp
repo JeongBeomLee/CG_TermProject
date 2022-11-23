@@ -35,7 +35,6 @@ PLAYER pacmanTop;
 PLAYER pacmanBot;
 PLAYER pacmanEyes;
 PLAYER pacmanNose;
-GLvoid initPlayer();
 
 //고스트 객체 5마리 예정
 GHOST first_ghost_body;
@@ -125,8 +124,8 @@ GLuint make_shaderProgram()
 	return ShaderProgramID;
 }
 
-	//pacmanTop.update();
-	//pacmanBot.update();
+//pacmanTop.update();
+//pacmanBot.update();
 
 void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
 {
@@ -138,7 +137,7 @@ void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
 	glutInitWindowPosition(100, 100);
 	glutInitWindowSize(winWidth, winHeight);
 	glutCreateWindow("CG_TermProject");
-	
+
 	//--- GLEW 초기화하기
 	glewExperimental = GL_TRUE;
 	glewInit();
@@ -156,11 +155,11 @@ void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
 	glEnable(GL_POLYGON_SMOOTH);// 안티 앨리어싱
 	glShadeModel(GL_SMOOTH);    // 부드러운 음영을 수행합니다.
 
-	/*initPlayer();*/
+	initPlayer();
 
 	// 유령객체 Init
-	InitGhost(first_ghost_body, first_ghost_eye,250.,-270.);
-	InitGhost(second_ghost_body, second_ghost_eye,-110.,-70.);
+	InitGhost(first_ghost_body, first_ghost_eye, 250., -270.);
+	InitGhost(second_ghost_body, second_ghost_eye, -110., -70.);
 	InitGhost(third_ghost_body, third_ghost_eye, -50, -270);
 	//맵 Init
 	InitMap(map);
@@ -179,9 +178,9 @@ float yaw{};
 float pitch{};
 float lastX = 800, lastY = 400;
 
-glm::vec3 cameraPos		=glm::vec3(250., 10.f, -250.);;
-glm::vec3 cameraFront	=glm::vec3(0.0, 0.0, 0.0);;
-glm::vec3 cameraUp		=glm::vec3(0.0, 1.0, 0.0);;
+glm::vec3 cameraPos = glm::vec3(250., 10.f, -250.);;
+glm::vec3 cameraFront = glm::vec3(0.0, 0.0, 0.0);;
+glm::vec3 cameraUp = glm::vec3(0.0, 1.0, 0.0);;
 void mouse_passive(int x, int y)
 {
 	if (firstMouse)
@@ -203,10 +202,10 @@ void mouse_passive(int x, int y)
 	yaw += xoffset;
 	pitch += yoffset;
 
-	if (pitch > 359.0f)
-		pitch = 359.0f;
-	if (pitch < -359.0f)
-		pitch = -359.0f;
+	if (pitch > 10.0f)
+		pitch = 10.0f;
+	if (pitch < -10.0f)
+		pitch = -10.0f;
 
 	glm::vec3 front;
 	front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
@@ -221,24 +220,24 @@ GLfloat cameraX = 103.f;
 GLfloat cameraY = 38.f;
 GLfloat cameraZ = 0.f;
 GLfloat cameraRotateDegree = 0.f;
-void setCamera(){
+void setCamera() {
 
-// 테스트용 카메라, 뷰포트임 나중에 객체로 만들어서 관리할 것임. 입맛대로 바꿔서 쓰세요
+	// 테스트용 카메라, 뷰포트임 나중에 객체로 만들어서 관리할 것임. 입맛대로 바꿔서 쓰세요
 
-	 view = glm::mat4(1.0f);
+	view = glm::mat4(1.0f);
 
-	 //3인칭 쿼터뷰 시점
-	 cameraPos = glm::vec3(0.0, 900.f, 5.0);
-	 cameraFront = glm::vec3(0.f, 0.f, 0.f);
-	 cameraUp = glm::vec3(0.0, 1.0, 0.0);
-	 view = glm::lookAt(cameraPos,  cameraFront, cameraUp);
-	 unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
-	 glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
+	//3인칭 쿼터뷰 시점
+    cameraPos = glm::vec3(0.0, 900.f, 5.0);
+	cameraFront = glm::vec3(0.f, 0.f, 0.f);
+	cameraUp = glm::vec3(0.0, 1.0, 0.0);
+	view = glm::lookAt(cameraPos,  cameraFront, cameraUp);
+	unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
+	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
 
 	//1인칭 카메라 SET passivemouse 사용해서 움직임 3인칭 주석 시키고 밑에꺼 주석풀면 사용가능
-	//view = glm::lookAt(cameraPos, cameraPos+cameraFront, cameraUp);
-	//unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
-	//glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
+	/*view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+	unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
+	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);*/
 
 }
 void setProjection()
@@ -261,7 +260,7 @@ void Render()
 	setProjection();
 	//pacmanTop.draw();
 	//pacmanBot.draw();
-	for(int i{};i<327;++i)
+	for (int i{}; i < 327; ++i)
 		map[i].draw();
 	pacmanTop.draw();
 	pacmanBot.draw();
@@ -332,7 +331,7 @@ GLvoid KeyboardUp(unsigned char key, int x, int y)
 //스페셜 키보드~
 void sp_keybord(int key, int x, int y)
 {
-	float cameraSpeed = 0.5f;
+	float cameraSpeed = 1.5f;
 	if (key == GLUT_KEY_UP)
 	{
 		cameraPos += cameraSpeed * cameraFront;
@@ -354,7 +353,7 @@ void sp_keybord(int key, int x, int y)
 	glutPostRedisplay();
 }
 
-void TimerFunction(int value){
+void TimerFunction(int value) {
 	//첫번째 Ghost AI
 	first_ghost_body.AI_FIRST();
 	first_ghost_eye.AI_FIRST();
@@ -364,7 +363,7 @@ void TimerFunction(int value){
 	//세번째 Ghost AI
 	third_ghost_body.AI_THIRD();
 	third_ghost_eye.AI_THIRD();
-	
+
 	//====================================================================
 	//충돌 검사 작동확인중 충돌 정상작동함	 pch에 my_intersectrect 만든거 사용요망
 	//RECT m_temp[327];
@@ -382,7 +381,8 @@ void TimerFunction(int value){
 
 //// 타이머 (객체 변환은 여기서, 변환 다 했으면 마지막에 update 넣어주기)
 
-
-		glutTimerFunc(10, TimerFunction, 1);
-		glutPostRedisplay();
+	redrawPlayer();
+	animatePlayer();
+	glutTimerFunc(10, TimerFunction, 1);
+	glutPostRedisplay();
 }
