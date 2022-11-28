@@ -15,9 +15,7 @@ private:
 	GLuint VAO, VBO[2], EBO;
 
 	// vertex, color, face
-	vector<glm::vec3>  vertexData;
-	vector<glm::vec3>  colorData;
-	vector<glm::ivec3> faceData;
+	vector<glm::vec3> vertexInfo;
 
 	// 스케일, 회전, 이동
 	glm::mat4 scale;  //--- 스케일 행렬
@@ -34,11 +32,12 @@ public:
 	void rotateTransform(float x, float y, float z, float degree); //--- 회전 변환
 	void moveTranform(float x, float y, float z); //--- 이동 변환
 	RECT get_BB();
-
 	void update();
-	void draw();
+	void draw(int R,int G,int B);
 
-	void changeColor(int R, int G, int B); // 색 변경 (0 ~ 255)
+	void changeColor(int R, int G, int B);
+
+	//void changeColor(int R, int G, int B); // 색 변경 (0 ~ 255)
 
 	//첫번째 AI루틴
 	bool first_ghost_down{ TRUE };

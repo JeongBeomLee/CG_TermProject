@@ -63,6 +63,9 @@
     <ClCompile Include="PET.cpp">
       <Filter>PET</Filter>
     </ClCompile>
+    <ClCompile Include="readshader.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -86,12 +89,24 @@
     <ClInclude Include="PET.h">
       <Filter>PET</Filter>
     </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="readshader.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="vertex.glsl">
       <Filter>Shader</Filter>
     </None>
     <None Include="fragment.glsl">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="new_fragment.glsl">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="new_vertex.glsl">
       <Filter>Shader</Filter>
     </None>
   </ItemGroup>

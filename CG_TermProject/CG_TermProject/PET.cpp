@@ -2,8 +2,8 @@
 
 void PET::init(int R, int G, int B, string str)
 {
-	ReadObj(str, &vertexData, &colorData, &faceData);
-	initBuffer(&VAO, VBO, &EBO, vertexData, colorData, faceData);
+	//ReadObj(str, &vertexData, &colorData, &faceData);
+	//initBuffer(&VAO, VBO, &EBO, vertexData, colorData, faceData);
 	changeColor(R, G, B);
 }
 
@@ -57,7 +57,7 @@ void PET::update()
 	vec_transform.clear();
 }
 
-void PET::draw()
+void PET::draw(unsigned int shaderID)
 {
 	glBindVertexArray(VAO);
 	unsigned int modelTransform = glGetUniformLocation(shaderID, "modelTransform");

@@ -34,7 +34,7 @@ public:
 	RECT get_BB(float x, float z);
 
 	void update();
-	void draw();
+	void draw(unsigned int shaderID);
 
 	void changeColor(int R, int G, int B); // »ö º¯°æ (0 ~ 255)
 

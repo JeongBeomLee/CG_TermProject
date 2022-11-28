@@ -3,11 +3,10 @@
 GLfloat deg = 0.f;
 GLboolean plusDeg = true;
 
-void PLAYER::init(int R, int G, int B, string str)
+void PLAYER::init(string str)
 {
-	ReadObj(str, &vertexData, &colorData, &faceData);
-	initBuffer(&VAO, VBO, &EBO, vertexData, colorData, faceData);
-	changeColor(R, G, B);
+	ReadObj(str, vertexInfo);
+	initBuffer(&VAO, &VBO, vertexInfo);
 }
 
 //--- 스케일 변환
@@ -60,12 +59,13 @@ void PLAYER::update()
 	vec_transform.clear();
 }
 
-void PLAYER::draw()
+void PLAYER::draw(int R, int G, int B)
 {
+	changeColor(R, G, B);
 	glBindVertexArray(VAO);
 	unsigned int modelTransform = glGetUniformLocation(shaderID, "modelTransform");
 	glUniformMatrix4fv(modelTransform, 1, GL_FALSE, glm::value_ptr(merge));
-	glDrawElements(GL_TRIANGLES, faceData.size() * 3, GL_UNSIGNED_INT, 0);
+	glDrawArrays(GL_TRIANGLES, 0, vertexInfo.size());
 }
 
 void PLAYER::changeColor(int R, int G, int B)
@@ -74,13 +74,7 @@ void PLAYER::changeColor(int R, int G, int B)
 	float g = (float)G / 255.f;
 	float b = (float)B / 255.f;
 
-	for (int i = 0; i < colorData.size(); ++i)
-	{
-		colorData[i] = glm::vec3(r, g, b);
-	}
-
-	glBindBuffer(GL_ARRAY_BUFFER, VBO[1]);
-	glBufferData(GL_ARRAY_BUFFER, colorData.size() * sizeof(glm::vec3), &colorData[0], GL_STATIC_DRAW);
+	glUniform3f(glGetUniformLocation(shaderID, "objectColor"), r, g, b);
 }
 
 PLAYER::PLAYER()
@@ -93,10 +87,16 @@ PLAYER::~PLAYER()
 
 GLvoid initPlayer()
 {
-	pacmanTop.init(255, 255, 0, "asset/packman_top.obj");
-	pacmanBot.init(255, 255, 0, "asset/packman_bottom.obj");
-	pacmanEyes.init(0, 0, 0, "asset/packman_eyes.obj");
-	pacmanNose.init(255, 255, 0, "asset/packman_nose.obj");
+	//pacmanTop.init(255, 255, 0, "asset/packman_top.obj");
+	//pacmanBot.init(255, 255, 0, "asset/packman_bottom.obj");
+	//pacmanEyes.init(0, 0, 0, "asset/packman_eyes.obj");
+	//pacmanNose.init(255, 255, 0, "asset/packman_nose.obj");
+	pacmanTop.init( "asset/packman_top.obj");
+	pacmanBot.init( "asset/packman_bottom.obj");
+	pacmanEyes.init( "asset/packman_eyes.obj");
+	pacmanNose.init( "asset/packman_nose.obj");
+
+
 
 	pacmanTop.scaleTransform(50.0, 50.0, 50.0);
 	pacmanBot.scaleTransform (50.0, 50.0, 50.0);

@@ -24,12 +24,15 @@
 #include <gl/glm/gtc/matrix_transform.hpp>
 #include <gl/glm/gtc/type_ptr.hpp>
 
-
+#include "shader.h"
 
 using namespace std;
 extern GLuint shaderID;
 extern GLfloat winWidth, winHeight;
 
-void ReadObj(string file, vector<glm::vec3>* vertexData, vector<glm::vec3>* colorData, vector<glm::ivec3>* faceData); //--- 오브젝트 읽어오기
-void initBuffer(GLuint* VAO, GLuint* VBO, GLuint* EBO, vector<glm::vec3> vertexData, vector<glm::vec3> colorData, vector<glm::ivec3> faceData); //--- 오브젝트 정보 저장하기
+//void ReadObj(string file, vector<glm::vec3>* vertexData, vector<glm::vec3>* colorData, vector<glm::ivec3>* faceData); //--- 오브젝트 읽어오기
+void ReadObj(std::string file, vector<glm::vec3>& vertexInfo);
+//void initBuffer(GLuint* VAO, GLuint* VBO, GLuint* EBO, vector<glm::vec3> vertexData, vector<glm::vec3> colorData, vector<glm::ivec3> faceData); //--- 오브젝트 정보 저장하기
+void initBuffer(GLuint* VAO, GLuint* VBO, vector<glm::vec3> vertexInfo); //--- 오브젝트 정보 저장하기
+void box_initBuffer(GLuint* VAO, GLuint* VBO, float vertices[]);
 bool MyintersectRect(RECT& a, RECT& b);

@@ -2,9 +2,9 @@
 
 void GHOST::init(int R, int G, int B, string str,float pos_x,float pos_z)
 {
-	ReadObj(str, &vertexData, &colorData, &faceData);
-	initBuffer(&VAO, VBO, &EBO, vertexData, colorData, faceData);
-	changeColor(R, G, B);
+	ReadObj(str, vertexInfo);
+	initBuffer(&VAO, VBO, vertexInfo);
+	//changeColor(R, G, B);
 	x = pos_x;
 	z = pos_z;
 }
@@ -60,12 +60,14 @@ void GHOST::update()
 	vec_transform.clear();
 }
 
-void GHOST::draw()
+void GHOST::draw(int R,int G,int B)
 {
+	changeColor(R, G, B);
 	glBindVertexArray(VAO);
 	unsigned int modelTransform = glGetUniformLocation(shaderID, "modelTransform");
 	glUniformMatrix4fv(modelTransform, 1, GL_FALSE, glm::value_ptr(merge));
-	glDrawElements(GL_TRIANGLES, faceData.size() * 3, GL_UNSIGNED_INT, 0);
+	//glDrawElements(GL_TRIANGLES, faceData.size() * 3, GL_UNSIGNED_INT, 0); 
+	glDrawArrays(GL_TRIANGLES, 0, vertexInfo.size());
 }
 
 void GHOST::changeColor(int R, int G, int B)
@@ -74,13 +76,8 @@ void GHOST::changeColor(int R, int G, int B)
 	float g = (float)G / 255.f;
 	float b = (float)B / 255.f;
 
-	for (int i = 0; i < colorData.size(); ++i)
-	{
-		colorData[i] = glm::vec3(r, g, b);
-	}
 
-	glBindBuffer(GL_ARRAY_BUFFER, VBO[1]);
-	glBufferData(GL_ARRAY_BUFFER, colorData.size() * sizeof(glm::vec3), &colorData[0], GL_STATIC_DRAW);
+	glUniform3f(glGetUniformLocation(shaderID, "objectColor"), r, g, b);
 }
 
 void GHOST::AI_FIRST()
