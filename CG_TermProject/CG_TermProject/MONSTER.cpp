@@ -40,10 +40,17 @@ RECT GHOST::get_BB()
 {
 	RECT temp;
 
+<<<<<<< Updated upstream
 	temp.left   = x + dx - 15.0;
 	temp.top    = abs(z + dz - 15.0);
 	temp.right  = x + dx + 15.0;
 	temp.bottom = -abs(z + dz + 15.0);
+=======
+	temp.bottom = z + dz + 15.0;
+	temp.left = x + dx - 15.0;
+	temp.top = z + dz - 15.0;
+	temp.right = x + dx + 15.0;
+>>>>>>> Stashed changes
 
 
 	return temp;
