@@ -1,105 +1,24 @@
-﻿  GEM.cpp
-  MAP.cpp
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(44,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(63,19): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(64,20): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(65,16): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(66,21): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(101,27): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(105,55): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(105,32): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(111,52): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(115,55): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(119,54): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(119,36): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(123,61): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(123,40): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(130,52): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(133,58): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(142,65): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(142,42): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(147,67): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(147,44): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(153,65): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(153,42): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(157,67): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(157,44): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(161,42): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(165,44): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(171,65): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(171,42): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(175,67): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(175,44): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(179,66): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(179,43): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(183,67): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(183,44): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(189,40): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(194,51): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(197,54): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(203,58): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(207,59): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(212,40): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(215,41): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(219,58): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(222,59): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(227,34): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(230,38): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(234,34): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(237,38): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(243,40): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(248,52): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(251,54): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(257,52): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(261,56): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(266,33): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(269,41): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(274,58): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(277,59): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(282,58): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(285,59): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(291,40): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(294,40): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(299,59): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(302,60): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(307,38): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(310,40): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(315,56): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(318,59): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(323,39): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(326,40): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(331,40): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MAP.cpp(334,40): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  main.cpp
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(55,1): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(62,31): warning C4244: '인수': 'GLfloat'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(62,21): warning C4244: '인수': 'GLfloat'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(301,2): warning C4060: switch문에 'case' 또는 'default' 레이블이 없습니다.
   MONSTER.cpp
 C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(43,23): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(44,19): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(45,23): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(46,16): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(56,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  PET.cpp
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\PET.cpp(41,16): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\PET.cpp(42,15): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\PET.cpp(43,17): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\PET.cpp(44,18): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\PET.cpp(53,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\PET.cpp(74,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  PLAYER.cpp
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\PLAYER.cpp(43,18): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\PLAYER.cpp(44,18): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\PLAYER.cpp(45,18): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\PLAYER.cpp(46,18): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\PLAYER.cpp(55,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  main.cpp
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(54,1): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(61,31): warning C4244: '인수': 'GLfloat'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(61,21): warning C4244: '인수': 'GLfloat'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(116,11): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(117,11): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(123,10): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(124,10): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(258,2): warning C4060: switch문에 'case' 또는 'default' 레이블이 없습니다.
-  pch.cpp
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\pch.cpp(175,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  readshader.cpp
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(47,23): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(48,21): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(49,20): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(50,22): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(60,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   코드를 생성하고 있습니다...
+  LINK : C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\Debug\CG_TermProject.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
+readshader.obj : warning LNK4099: '' PDB를 'readshader.obj' 또는 ''에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+PLAYER.obj : warning LNK4099: 'vc143.pdb' PDB를 'PLAYER.obj' 또는 'C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\Debug\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+PET.obj : warning LNK4099: 'vc143.pdb' PDB를 'PET.obj' 또는 'C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\Debug\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+pch.obj : warning LNK4099: 'vc143.pdb' PDB를 'pch.obj' 또는 'C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\Debug\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+MAP.obj : warning LNK4099: 'vc143.pdb' PDB를 'MAP.obj' 또는 'C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\Debug\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+GEM.obj : warning LNK4099: 'vc143.pdb' PDB를 'GEM.obj' 또는 'C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\Debug\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
   CG_TermProject.vcxproj -> C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\Debug\CG_TermProject.exe
