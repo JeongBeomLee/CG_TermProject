@@ -227,17 +227,17 @@ void setCamera() {
 	view = glm::mat4(1.0f);
 
 	//3인칭 쿼터뷰 시점
-    cameraPos = glm::vec3(0.0, 900.f, 5.0);
+    /*cameraPos = glm::vec3(0.0, 900.f, 5.0);
 	cameraFront = glm::vec3(0.f, 0.f, 0.f);
-	cameraUp = glm::vec3(0.0, 1.0, 0.0);
-	view = glm::lookAt(cameraPos,  cameraFront, cameraUp);
-	unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
-	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
-
-	//1인칭 카메라 SET passivemouse 사용해서 움직임 3인칭 주석 시키고 밑에꺼 주석풀면 사용가능
-	/*view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+	cameraUp = glm::vec3(0.0, 1.0, 0.0);*/
+	/*view = glm::lookAt(cameraPos,  cameraFront, cameraUp);
 	unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
 	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);*/
+
+	//1인칭 카메라 SET passivemouse 사용해서 움직임 3인칭 주석 시키고 밑에꺼 주석풀면 사용가능
+	view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+	unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
+	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
 
 }
 void setProjection()
