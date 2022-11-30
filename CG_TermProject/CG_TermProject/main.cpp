@@ -46,6 +46,7 @@ GHOST third_ghost_eye;
 MAP map[327]{};
 
 // 카메라
+CAMERA camera;
 glm::vec3 cameraPos = glm::vec3(250., 10.f, -250.);
 glm::vec3 cameraFront = glm::vec3(0.0, 0.0, 0.0);
 glm::vec3 cameraUp = glm::vec3(0.0, 1.0, 0.0);
@@ -97,10 +98,10 @@ void main(int argc, char** argv) //--- 윈도우 출력하고 콜백함수 설정
 
 	glutDisplayFunc(Render);
 	glutReshapeFunc(Reshape);
+	glutPassiveMotionFunc(mouse_passive);
 	glutKeyboardFunc(KeyboardDown);
 	glutKeyboardUpFunc(KeyboardUp);
 	glutSpecialFunc(sp_keybord);
-	glutPassiveMotionFunc(mouse_passive);
 	glutTimerFunc(10, TimerFunction, 1);
 	glutMainLoop();
 }
@@ -111,48 +112,60 @@ float lastX = 800, lastY = 400;
 
 void mouse_passive(int x, int y)
 {
+	//if (firstMouse)
+	//{
+	//	lastX = x;
+	//	lastY = y;
+	//	firstMouse = false;
+	//}
+
+	//float xoffset = x - lastX;
+	//float yoffset = lastY - y;
+	//lastX = x;
+	//lastY = y;
+
+	//float sensitivity = 0.5;
+	//xoffset *= sensitivity;
+	//yoffset *= sensitivity;
+
+	//yaw += xoffset;
+	//pitch += yoffset;
+
+	//if (pitch > 10.0f)
+	//	pitch = 10.0f;
+	//if (pitch < -10.0f)
+	//	pitch = -10.0f;
+
+	//glm::vec3 front;
+	//front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+	//front.y = sin(glm::radians(pitch));
+	//front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+	//cameraFront = glm::normalize(front);
+	float xpos = static_cast<float>(x);
+	float ypos = static_cast<float>(y);
+
 	if (firstMouse)
 	{
-		lastX = x;
-		lastY = y;
+		lastX = xpos;
+		lastY = ypos;
 		firstMouse = false;
 	}
 
-	float xoffset = x - lastX;
-	float yoffset = lastY - y;
-	lastX = x;
-	lastY = y;
+	float xoffset = xpos - lastX;
+	float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
 
-	float sensitivity = 0.5;
-	xoffset *= sensitivity;
-	yoffset *= sensitivity;
+	lastX = xpos;
+	lastY = ypos;
 
-	yaw += xoffset;
-	pitch += yoffset;
-
-	if (pitch > 10.0f)
-		pitch = 10.0f;
-	if (pitch < -10.0f)
-		pitch = -10.0f;
-
-	glm::vec3 front;
-	front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
-	front.y = sin(glm::radians(pitch));
-	front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
-	cameraFront = glm::normalize(front);
-
+	camera.process_mouse_movement(xoffset, yoffset);
 	glutPostRedisplay();
 }
-glm::mat4 view;
-GLfloat cameraX = 103.f;
-GLfloat cameraY = 38.f;
-GLfloat cameraZ = 0.f;
-GLfloat cameraRotateDegree = 0.f;
+
 void setCamera() {
 
 	// 테스트용 카메라, 뷰포트임 나중에 객체로 만들어서 관리할 것임. 입맛대로 바꿔서 쓰세요
 
-	view = glm::mat4(1.0f);
+	/*view = glm::mat4(1.0f);*/
 
 	//3인칭 쿼터뷰 시점
  //   cameraPos = glm::vec3(0.0, 900.f, 5.0);
@@ -163,10 +176,18 @@ void setCamera() {
 	//glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
 
 	//1인칭 카메라 SET passivemouse 사용해서 움직임 3인칭 주석 시키고 밑에꺼 주석풀면 사용가능
-	view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
-	unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
-	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
+	//view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+	//unsigned int viewLocation = glGetUniformLocation(shaderID, "viewTransform");
+	//glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
 
+	if (camera.camera_change == 2)
+		camera.set_top();
+	else if (camera.camera_change == 1)
+		camera.set_third_person();
+	else if (camera.camera_change == 0)
+		camera.set_frist_person();
+
+	camera.get_view();
 }
 void setProjection()
 {
@@ -217,29 +238,16 @@ GLvoid KeyboardDown(unsigned char key, int x, int y)
 {
 	switch (key)
 	{
-	case 'q':
-		cameraX += 1.0;
+	case'1':
+		camera.camera_change = 0;
 		break;
-	case 'w':
-		cameraX += 1.0;
+	case'2':
+		camera.camera_change = 1;
+		glutPostRedisplay();
 		break;
-
-	case 'a':
-		cameraY += 1.0;
-		break;
-	case 's':
-		cameraY += 1.0;
-		break;
-
-	case 'z':
-		cameraZ += 1.0;
-		break;
-	case 'x':
-		cameraZ += 1.0;
-		break;
-
-	case ' ':
-		cameraRotateDegree += 5.0;
+	case'3':
+		camera.camera_change = 2;
+		glutPostRedisplay();
 		break;
 
 	case VK_ESCAPE:
