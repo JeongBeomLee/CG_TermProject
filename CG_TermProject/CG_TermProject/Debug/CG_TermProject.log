@@ -1,24 +1,8 @@
-﻿  main.cpp
+﻿  CAMERA.cpp
+  main.cpp
 C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(55,1): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
 C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(62,31): warning C4244: '인수': 'GLfloat'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(62,21): warning C4244: '인수': 'GLfloat'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(301,2): warning C4060: switch문에 'case' 또는 'default' 레이블이 없습니다.
-  MONSTER.cpp
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(43,23): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(44,19): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(45,23): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(46,16): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(47,23): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(48,21): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(49,20): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(50,22): warning C4244: '=': 'double'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\MONSTER.cpp(60,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\CG_TermProject\main.cpp(271,2): warning C4060: switch문에 'case' 또는 'default' 레이블이 없습니다.
   코드를 생성하고 있습니다...
-  LINK : C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\Debug\CG_TermProject.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
-readshader.obj : warning LNK4099: '' PDB를 'readshader.obj' 또는 ''에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
-PLAYER.obj : warning LNK4099: 'vc143.pdb' PDB를 'PLAYER.obj' 또는 'C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\Debug\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
-PET.obj : warning LNK4099: 'vc143.pdb' PDB를 'PET.obj' 또는 'C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\Debug\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
-pch.obj : warning LNK4099: 'vc143.pdb' PDB를 'pch.obj' 또는 'C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\Debug\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
-MAP.obj : warning LNK4099: 'vc143.pdb' PDB를 'MAP.obj' 또는 'C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\Debug\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
-GEM.obj : warning LNK4099: 'vc143.pdb' PDB를 'GEM.obj' 또는 'C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\Debug\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
   CG_TermProject.vcxproj -> C:\Users\전태준\Desktop\CG_PROJECT\CG_TermProject\CG_TermProject\Debug\CG_TermProject.exe

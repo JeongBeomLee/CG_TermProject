@@ -55,6 +55,15 @@ void MAP::draw(int R,int G, int B)
 	unsigned int modelTransform = glGetUniformLocation(shaderID, "modelTransform");
 	glUniformMatrix4fv(modelTransform, 1, GL_FALSE, glm::value_ptr(merge));
 	glDrawArrays(GL_TRIANGLES, 0, 36);
+
+	glEnable(GL_BLEND);
+
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glDrawArrays(GL_TRIANGLES, 0, 36);
+
+	glDisable(GL_BLEND);
+
+
 }
 
  RECT MAP::get_bb()
@@ -110,10 +119,17 @@ void InitMap(MAP map[327])
 			map[60 + i].init(rand_num, 0, 0);
 			map[60 + i].moveTranform(0.0, 0.0, (col + 20.0) + (i * 20.0));
 			map[60 + i].update();
+			map[64].init(rand_num, 0, 0);
+			map[64].moveTranform(0.0, 0.0, 0.0);
+			map[64].update();
+
 
 			map[113 + i].init(rand_num, 0, 0);
 			map[113 + i].moveTranform(-20.0, 0.0, (col + 20.0) + (i * 20.0));
 			map[113 + i].update();
+			map[117].init(rand_num, 0, 0);
+			map[117].moveTranform(-20.0, 0.0, 0.0);
+			map[117].update();
 
 			map[128 + i].init(rand_num, 0, 0);
 			map[128 + i].moveTranform(row+20+20.*i, 0.0, (col + 200.0));
